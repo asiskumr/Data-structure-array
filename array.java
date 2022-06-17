@@ -33,9 +33,10 @@ nums[i] is either 0 or 1.
             }
             else 
                {
+               //checking 0 from where next 1 tsart
                	 j =i;
                	if(numss[j+1]==1){
-               		
+               		//creating new array to store each set of cosecutive 1s
                 	while(k < countOne.length){
                     	countOne[k]=count;
                        
@@ -50,9 +51,21 @@ nums[i] is either 0 or 1.
         countOne[k]=count;
         }
         }
+        //iterating all 1s after 0
        for(int val:countOne){
-           System.out.println(val);       }
-        return 1;
+           System.out.println(val);       
+           }
+           System.out.println("***********");
+           System.out.println();
+       // find largest consecutive 1s    
+       int max = countOne[0];    
+         for (int g = 1; g < countOne.length; g++){
+            if(countOne[g] > max){
+                max =countOne[g];}
+         }
+          return max;
+       
+        
     }
 }
 
@@ -62,7 +75,8 @@ public class Main {
    int[] nums = new int[]{1,1,0,1,1,1,0,1,1,1,1,0,0,1};
    Solution s = new Solution();
    
-    s.findMaxConsecutiveOnes(nums);
+    int result = s.findMaxConsecutiveOnes(nums);
+    System.out.println("Max consecutive 1s is :"+result);
     
   }
 }
